@@ -1,4 +1,4 @@
-package edu.tus.movieservice.config;
+package edu.tus.movieservice.dto.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;

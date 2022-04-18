@@ -4,7 +4,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
-import edu.tus.movieservice.config.Config;
+import edu.tus.movieservice.dto.config.Config;
 import edu.tus.movieservice.dto.Movie;
 import edu.tus.movieservice.dao.MovieRepository;
 import edu.tus.movieservice.exception.ResourceNotFoundException;
@@ -34,7 +34,7 @@ public class MovieController {
     @ResponseBody
     public ResponseEntity<List<Movie>> getMovies(@RequestParam("name") Optional<String> movieName,
                                                  @RequestParam("director") Optional<String> movieDirector) throws ResourceNotFoundException {
-        List<Movie> movies = null;
+        List<Movie> movies;
 
         URI location = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUri();
 
