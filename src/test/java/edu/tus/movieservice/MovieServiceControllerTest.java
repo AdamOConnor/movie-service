@@ -1,5 +1,6 @@
 package edu.tus.movieservice;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.tus.movieservice.dto.config.Config;
 import edu.tus.movieservice.dto.Movie;
 import edu.tus.movieservice.dto.Inventory;
@@ -13,8 +14,15 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.when;
 import static org.mockito.ArgumentMatchers.any;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -162,6 +170,49 @@ class MovieServiceControllerTest {
                 .header("Location", Matchers.containsString("http://localhost/movie"));
 
     }
+
+    @Test
+    void putMovieTest() {
+        Mockito.when(movieRepository.save(any(Movie.class))).thenReturn(movie);
+
+        RestAssuredMockMvc
+                .given()
+                .contentType("application/json")
+                .body("{\n" +
+                        "    \"id\": 1,\n" +
+                        "    \"name\": \"Adams Test Movie\",\n" +
+                        "    \"director\": \"Adam\",\n" +
+                        "    \"year\": 2003,\n" +
+                        "    \"rating\": \"5/10\",\n" +
+                        "    \"description\": \"This is to test the posting of a movie\",\n" +
+                        "    \"inventory\": {\n" +
+                        "        \"id\": 1,\n" +
+                        "        \"initialQuantity\": 4,\n" +
+                        "        \"currentQuantity\": 4\n" +
+                        "    }\n" +
+                        "}")
+                .when()
+                .put("/movie/1")
+                .then()
+                .statusCode(201)
+                .header("Location", Matchers.containsString("http://localhost/movie"));
+
+    }
+
+
+   /** @Test
+    public void updateBookTest() throws Exception
+    {
+        Movie movie = updateMovie();
+        ObjectMapper map =new ObjectMapper();
+        String jsonString = map.writeValueAsString(movie);
+        when(movieRepository.checkMovieAlreadyExist(movie.getId())).thenReturn(true);
+        when(movieRepository.getMovieById(any())).thenReturn(movie);
+        this.mockMvc.perform(put("/movie/"+movie.getId()).contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonString)).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().json("{\"msg\":\"Success Book is Updated\",\"id\":\"rain322\"}"));
+
+    }**/
 
     @Test
     void deleteMovieById(){
