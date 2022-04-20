@@ -17,9 +17,7 @@ public class ParallelBuilderWithCucumberReport {
 	@Test
 	public void executeKarateTest() {
 		Builder aRunner = new Builder();
-		//aRunner.path("classpath:com/api/automation/getrequest");
 		aRunner.path("classpath:com/api/automation").outputCucumberJson(true);
-		// aRunner.parallel(5);
 		Results result = aRunner.parallel(5);
 		System.out.println("Total Feature => " + result.getFeaturesTotal());
 		System.out.println("Total Scenarios => " + result.getScenariosTotal());
@@ -28,8 +26,7 @@ public class ParallelBuilderWithCucumberReport {
 		Assertions.assertEquals(0, result.getFailCount(), "There are Some Failed Scenarios ");
 		
 	}
-	
-	// C:\Users\mary\SpringTesting\karateframework\target\surefire-reports
+
 	private void generateCucumberReport(String reportDirLocation) {
 		System.out.println(reportDirLocation);
 		File reportDir = new File(reportDirLocation);
