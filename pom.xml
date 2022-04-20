@@ -98,7 +98,7 @@
                 </excludes>
             </testResource>
         </testResources>
-        <finalName>${artifactId}</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -127,7 +127,7 @@
                 <configuration>
                     <!--  <argLine>-Dfile.encoding=UTF-8</argLine> -->
                     <includes>
-                        <include>**/ParallelBuilder.java</include>
+                        <include>**/ParallelBuilderWithCucumberReport.java</include>
                     </includes>
                     <rerunFailingTestsCount>2</rerunFailingTestsCount>
                     <systemProperties>
