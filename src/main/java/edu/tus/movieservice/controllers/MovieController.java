@@ -33,8 +33,7 @@ public class MovieController {
     @GetMapping("/movie")
     @ResponseBody
     public ResponseEntity<List<Movie>> getMovies(@RequestParam("name") Optional<String> movieName,
-                                                 @RequestParam("director") Optional<String> movieDirector,
-                                                 @RequestParam("rating") Optional<String> movieRating) throws ResourceNotFoundException {
+                                                 @RequestParam("director") Optional<String> movieDirector) throws ResourceNotFoundException {
         List<Movie> movies;
 
         URI location = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUri();
