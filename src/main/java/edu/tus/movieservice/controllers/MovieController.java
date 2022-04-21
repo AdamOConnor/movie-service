@@ -40,7 +40,7 @@ public class MovieController {
 
         HttpHeaders responseHeaders = new HttpHeaders();
 
-        // Create custom response header to return configuration parameters
+        // Create custom response header to return configuration parameters this is just a test
         responseHeaders.add("Environment", config.getEnvironment());
         responseHeaders.add("Version", config.getVersion());
 
