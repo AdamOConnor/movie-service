@@ -1,4 +1,4 @@
-package com.api.automation.karateframework.configuration.getrequest;
+package com.api.automation.karateframework.configuration.agetrequest;
 
 import com.intuit.karate.junit5.Karate;
 import com.intuit.karate.junit5.Karate.Test;
