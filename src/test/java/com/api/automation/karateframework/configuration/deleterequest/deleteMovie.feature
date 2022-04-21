@@ -4,9 +4,9 @@ Feature: To test the delete end point
   Background: Create and Initialize base Url
     Given url 'http://localhost:8080'
 
-  Scenario: To delete the job entry from application using job id
-    # Create a new Job entry
-    # Delete the newly created job entry
+  Scenario: To delete the movie entry from application using movie id
+    # Create a new movie entry
+    # Delete the newly created movie entry
     # Get request with query parameter and validate for 404
     * def movieId = 1
     # delete request
@@ -20,9 +20,9 @@ Feature: To test the delete end point
     When method get
     Then status 404
 
-  Scenario: To delete the job entry from application using job id and delete the job entry twice
-    # Create a new Job entry
-    # Delete the newly created job entry
+  Scenario: To delete the movie entry from application using movie id and delete the movie entry twice
+    # Create a new movie entry
+    # Delete the newly created movie entry
     # Get request with query parameter and validate for 404
     * def movieId = 2
     # delete request
@@ -31,7 +31,7 @@ Feature: To test the delete end point
     When method delete
     Then status 200
     # delete request
-    Given path '/movie' + movieId
+    Given path '/movie/' + movieId
     And headers {Accept:'application/json'}
     When method delete
     Then status 404
