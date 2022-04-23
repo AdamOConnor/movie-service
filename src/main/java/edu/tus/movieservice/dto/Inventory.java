@@ -7,20 +7,19 @@ import javax.persistence.*;
 import javax.validation.constraints.PositiveOrZero;
 
 @Entity
-@Table(name="Inventory")
+@Table(name = "Inventory")
 @ApiModel(description = "Library Movie Inventory Details - A inventory entity with starting & current quantities of movies available to loan")
 public class Inventory {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @PositiveOrZero
-    @ApiModelProperty(name = "initialQuantity", dataType = "Integer", example = "5", notes="Must be zero or positive integer")
+    @ApiModelProperty(name = "initialQuantity", dataType = "Integer", example = "5", notes = "Must be zero or positive integer")
     private int initialQuantity;
 
     @PositiveOrZero
-    @ApiModelProperty(name = "currentQuantity", dataType = "Integer", example = "5", notes="Must be zero or positive integer")
+    @ApiModelProperty(name = "currentQuantity", dataType = "Integer", example = "5", notes = "Must be zero or positive integer")
     private int currentQuantity;
 
     @OneToOne(mappedBy = "inventory")

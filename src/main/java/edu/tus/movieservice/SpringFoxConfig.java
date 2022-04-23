@@ -17,8 +17,8 @@ import java.util.ArrayList;
 @EnableSwagger2
 public class SpringFoxConfig {
 
-    public static final Contact DEVELOPER_INFO = new Contact ("Adam O'Connor", "edu.tus.movieservice", "A00291730@student.ait.ie" );
-    public static final ApiInfo API_INFO = new ApiInfo ( "Movie Service REST API Documentation", "Movie Service Swagger Documentation","1.0", "", DEVELOPER_INFO, "Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0", new ArrayList<VendorExtension>());
+    public static final Contact DEVELOPER_INFO = new Contact("Adam O'Connor", "edu.tus.movieservice", "A00291730@student.ait.ie");
+    public static final ApiInfo API_INFO = new ApiInfo("Movie Service REST API Documentation", "Movie Service Swagger Documentation", "1.0", "", DEVELOPER_INFO, "Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0", new ArrayList<VendorExtension>());
 
     @Bean
     public Docket api() {

@@ -96,8 +96,7 @@ public class MovieController {
         Optional<Movie> movieFound = movieRepository.findById(id);
         if(movieFound.isPresent()) {
             return movieFound.get();
-        }
-        else {
+        }else {
             throw new ResourceNotFoundException("Unable to find movie with the associated id of: " + id);
         }
     }
@@ -129,12 +128,10 @@ public class MovieController {
         Optional<Movie> savedMovie = movieRepository.findById(id);
         if(savedMovie.isPresent()) {
             movieRepository.save(movie);
-            // return 200
             return  ResponseEntity.status(HttpStatus.OK).body(movie);
         }else {
             throw new ResourceNotFoundException("No Movie with found id: " + id);
-        }
-    }
+        }}
 
 }
 

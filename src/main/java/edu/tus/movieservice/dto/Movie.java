@@ -16,20 +16,20 @@ import javax.validation.constraints.Size;
 @Table(name = "Movies")
 @ApiModel(description = "Library Movie Details - A movie entity to add to the library inventory storing movie titles, year, rating, description along with current inventory details")
 public class Movie {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 
 	@NotBlank(message = "Movie must have an associated a Name")
-	@Size(min=4)
+	@Size(min = 4)
 	@Column(name = "name")
 	private String name;
 
 	@NotBlank(message = "Movie must have an associated Director")
 	@Column(name = "director")
-	@ApiModelProperty(name = "director", dataType = "String", example = "Matt Reeves", notes="Must have a valid director")
+	@ApiModelProperty(name = "director", dataType = "String", example = "Matt Reeves", notes = "Must have a valid director")
 	private String director;
 
 	@Column(name = "year")
