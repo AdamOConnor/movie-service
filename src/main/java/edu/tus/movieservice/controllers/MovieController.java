@@ -94,10 +94,12 @@ public class MovieController {
     @GetMapping("/movie/{id}")
     public Movie getMovieById(@Valid @PathVariable int id) throws ResourceNotFoundException {
         Optional<Movie> movieFound = movieRepository.findById(id);
-        if(movieFound.isPresent())
+        if(movieFound.isPresent()) {
             return movieFound.get();
-        else
+        }
+        else {
             throw new ResourceNotFoundException("Unable to find movie with the associated id of: " + id);
+        }
     }
 
     @DeleteMapping("/movie/{id}")

@@ -62,20 +62,26 @@ public class Movie {
 	}
 
 	public Integer getId() {
+
 		return id;
 	}
 
 	public void setId(Integer id) {
+
 		this.id = id;
 	}
 
-	public String getName() { return name; }
+	public String getName() {
+		return name;
+	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getDirector() { return director; }
+	public String getDirector() {
+		return director;
+	}
 
 	public void setDirector(String director) {
 		this.director = director;
