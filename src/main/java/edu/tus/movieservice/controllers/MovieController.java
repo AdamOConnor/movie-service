@@ -90,17 +90,17 @@ public class MovieController {
                 .headers(responseHeaders)
                 .body(movieRepository.findAll());
     }
-
+/**
     @GetMapping("/movie/{id}")
     public Movie getMovieById(@Valid @PathVariable int id) throws ResourceNotFoundException {
         Optional<Movie> movieFound = movieRepository.findById(id);
         if(movieFound.isPresent()) {
             return movieFound.get();
-        }else {
+        }else{
             throw new ResourceNotFoundException("Unable to find movie with the associated id of: " + id);
         }
     }
-
+*/
     @DeleteMapping("/movie/{id}")
     public void deleteMovie(@Valid @PathVariable(value = "id") Integer movieId) throws ResourceNotFoundException {
 
@@ -129,9 +129,10 @@ public class MovieController {
         if(savedMovie.isPresent()) {
             movieRepository.save(movie);
             return  ResponseEntity.status(HttpStatus.OK).body(movie);
-        }else {
+        }else{
             throw new ResourceNotFoundException("No Movie with found id: " + id);
-        }}
+        }
+    }
 
 }
 
