@@ -108,7 +108,7 @@ class MovieServiceControllerTest {
     }
 
     @Test
-    void getBookByTitleAndAuthorSearch(){
+    void getMovieByNameAndDirectorSearch(){
         Mockito.when(movieRepository.findByNameAndDirectorContainingIgnoreCase("Adams", "Adam")).thenReturn(movieList);
 
         RestAssuredMockMvc
